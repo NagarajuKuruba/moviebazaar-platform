@@ -8,12 +8,20 @@
         <groupId>com.moviebazaar</groupId>
         <artifactId>moviebazaar-platform</artifactId>
         <version>1.0</version>
-        <relativePath>../..</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <groupId>com.moviebazaar</groupId>
     <artifactId>user-service</artifactId>
     <version>1.0</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+
+    </dependencies>
     
 </project>

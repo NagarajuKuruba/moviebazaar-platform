@@ -9,6 +9,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/your-repo/moviebazaar-platform
-          default-label: main
+          uri: https://github.com/NagarajuKuruba/moviebazaar-platform.git
+          search-paths:
+            - config-repo/common
+            - config-repo/{profile}
+          default-label: dev
           clone-on-start: true
