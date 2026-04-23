@@ -13,3 +13,5 @@ spring:
           uri: http://localhost:8081
           predicates:
             - Path=/users/**
+          filters:
+            - StripPrefix=1
