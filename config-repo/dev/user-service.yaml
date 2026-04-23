@@ -1,5 +1,5 @@
 app: user-service
 custom:
-    message: "Hello from User Service!!!"
+    message: "Hello from User Service!!"
 server:
   port: 8081
