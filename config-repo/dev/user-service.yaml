@@ -3,3 +3,12 @@ custom:
     message: "Hello from User Service!!"
 server:
   port: 8081
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/user_db
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
