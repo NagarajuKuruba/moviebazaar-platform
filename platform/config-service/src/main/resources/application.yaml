@@ -13,5 +13,5 @@ spring:
           search-paths:
             - config-repo/common
             - config-repo/{profile}
-          default-label: dev
+          default-label: develop
           clone-on-start: true

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: moviebazaar-user-service
+    name: user-service
 
   profiles:
     active: dev
