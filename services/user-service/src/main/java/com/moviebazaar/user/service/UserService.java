@@ -1,12 +1,19 @@
 package com.moviebazaar.user.service;
 
 
+import com.moviebazaar.common.pagination.PageRequestDto;
+import com.moviebazaar.common.pagination.PageResponseDto;
+import com.moviebazaar.common.pagination.PaginationUtil;
 import com.moviebazaar.user.dto.UserRequest;
 import com.moviebazaar.user.dto.UserResponse;
 import com.moviebazaar.user.entity.User;
 import com.moviebazaar.user.repository.UserRepository;
 import com.moviebazaar.user.util.UserMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,11 +35,13 @@ public class UserService {
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
-    public List<UserResponse> getAll() {
-        return repo.findAll()
-                .stream()
-                .map(UserMapper::toResponse)
-                .toList();
+    public PageResponseDto<UserResponse> getAll(PageRequestDto request) {
+
+        Pageable pageable = PaginationUtil.buildPageable(request);
+
+        Page<User> page = repo.findAll(pageable);
+
+        return PaginationUtil.buildResponse(page, UserMapper::toResponse);
     }
 
     public UserResponse update(Long id, UserRequest request) {
