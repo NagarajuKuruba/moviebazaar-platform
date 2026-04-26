@@ -1,11 +1,12 @@
 package com.moviebazaar.user.service;
 
 
+import com.moviebazaar.common.dto.user.UserRequest;
+import com.moviebazaar.common.dto.user.UserResponse;
 import com.moviebazaar.common.pagination.PageRequestDto;
 import com.moviebazaar.common.pagination.PageResponseDto;
 import com.moviebazaar.common.pagination.PaginationUtil;
-import com.moviebazaar.user.dto.UserRequest;
-import com.moviebazaar.user.dto.UserResponse;
+
 import com.moviebazaar.user.entity.User;
 import com.moviebazaar.user.repository.UserRepository;
 import com.moviebazaar.user.util.UserMapper;
@@ -31,6 +32,12 @@ public class UserService {
 
     public UserResponse getById(Long id) {
         return repo.findById(id)
+                .map(UserMapper::toResponse)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    public UserResponse getByEmail(String email) {
+        return repo.findByEmail(email)
                 .map(UserMapper::toResponse)
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }

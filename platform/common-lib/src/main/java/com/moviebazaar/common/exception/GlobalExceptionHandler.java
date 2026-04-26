@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ApiResponse<?> handleUserAlreadyExistsException(RuntimeException ex) {
+        return ApiResponse.error(ex.getMessage());
+    }
+
     @ExceptionHandler(RuntimeException.class)
     public ApiResponse<?> handleRuntime(RuntimeException ex) {
         return ApiResponse.error(ex.getMessage());

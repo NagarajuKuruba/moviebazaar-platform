@@ -1,10 +1,11 @@
 package com.moviebazaar.user.controller;
 
+import com.moviebazaar.common.dto.user.UserRequest;
+import com.moviebazaar.common.dto.user.UserResponse;
 import com.moviebazaar.common.pagination.ApiResponse;
 import com.moviebazaar.common.pagination.PageRequestDto;
 import com.moviebazaar.common.pagination.PageResponseDto;
-import com.moviebazaar.user.dto.UserRequest;
-import com.moviebazaar.user.dto.UserResponse;
+
 import com.moviebazaar.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -48,4 +49,10 @@ public class UserController {
     public void delete(@PathVariable Long id) {
         service.delete(id);
     }
+
+    @GetMapping("/email/{email}")
+    public ApiResponse<UserResponse> getByEmail(@PathVariable String email) {
+        return ApiResponse.success("User fetched", service.getByEmail(email));
+    }
+
 }

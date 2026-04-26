@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: auth-service
+
+  config:
+    import: configserver:http://localhost:8888
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth_db
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+# JWT Config
+jwt:
+  secret: mysecretkey-springboot-test-key-qwertyuiopasdfghjklzxcvbnm
+  access-expiration: 900000
+  refresh-expiration: 604800000

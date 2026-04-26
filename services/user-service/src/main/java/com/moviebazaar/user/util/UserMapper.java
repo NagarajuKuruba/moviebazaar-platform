@@ -1,8 +1,8 @@
 package com.moviebazaar.user.util;
 
 
-import com.moviebazaar.user.dto.UserRequest;
-import com.moviebazaar.user.dto.UserResponse;
+import com.moviebazaar.common.dto.user.UserRequest;
+import com.moviebazaar.common.dto.user.UserResponse;
 import com.moviebazaar.user.entity.User;
 
 public class UserMapper {

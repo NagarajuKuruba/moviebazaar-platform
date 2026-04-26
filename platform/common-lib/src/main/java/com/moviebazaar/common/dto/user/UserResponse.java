@@ -1,4 +1,4 @@
-package com.moviebazaar.user.dto;
+package com.moviebazaar.common.dto.user;
 
 import lombok.Data;
 
