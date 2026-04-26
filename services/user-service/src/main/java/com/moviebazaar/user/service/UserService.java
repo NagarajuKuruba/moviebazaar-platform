@@ -43,12 +43,20 @@ public class UserService {
     }
 
     public PageResponseDto<UserResponse> getAll(PageRequestDto request) {
-
-        Pageable pageable = PaginationUtil.buildPageable(request);
+        Pageable pageable = PageRequest.of(
+                request.getPage(),
+                request.getSize(),
+                Sort.by("id").descending()
+        );
 
         Page<User> page = repo.findAll(pageable);
 
-        return PaginationUtil.buildResponse(page, UserMapper::toResponse);
+        return PaginationUtil.buildPageable(
+                page.getContent().stream().map(UserMapper::toResponse).toList(),
+                page.getNumber(),
+                page.getSize(),
+                page.getTotalElements()
+        );
     }
 
     public UserResponse update(Long id, UserRequest request) {

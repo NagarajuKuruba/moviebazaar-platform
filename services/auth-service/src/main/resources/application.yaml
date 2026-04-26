@@ -18,6 +18,5 @@ spring:
       ddl-auto: update
 # JWT Config
 jwt:
-  secret: mysecretkey-springboot-test-key-qwertyuiopasdfghjklzxcvbnm
   access-expiration: 900000
   refresh-expiration: 604800000

@@ -1,6 +1,7 @@
 package com.moviebazaar.common.pagination;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
+@Builder
 public class PageResponseDto<T> {
 
     private List<T> data;
