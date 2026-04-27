@@ -1,0 +1,21 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: theatre-service
+
+  config:
+    import: configserver:http://localhost:8888
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/theatre_db
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  profiles:
+    active: dev
+

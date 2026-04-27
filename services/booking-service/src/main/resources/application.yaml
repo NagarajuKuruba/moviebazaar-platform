@@ -1,0 +1,21 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: booking-service
+
+  config:
+    import: configserver:http://localhost:8888
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/booking_db
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  profiles:
+    active: dev
+
